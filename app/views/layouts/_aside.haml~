@@ -1,0 +1,5 @@
+#aside.box
+  %ul.box
+    %li=link_to "Группы",groups
+    %li=link_to "Вопросы",questions
+    %li=link_to "Преподаватели",

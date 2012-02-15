@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Номер:</b>
+  <%= @group.name %>
+</p>
+
+<p>
+  <b>Пароль:</b>
+  <%= @group.psd %>
+</p>
+
+
+<%= link_to 'Изменить', edit_group_path(@group) %> |
+<%= link_to 'Назад', groups_path %>

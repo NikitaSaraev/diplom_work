@@ -1,0 +1,6 @@
+<div id = "footer" class = "box">
+  <p class = "f-left">
+    &copy;
+    <%=show_years%>
+    Система анонимного анкетирования
+</div>

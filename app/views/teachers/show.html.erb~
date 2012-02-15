@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Имя:</b>
+  <%= @teacher.name %>
+</p>
+
+
+<%= link_to 'Изменить', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

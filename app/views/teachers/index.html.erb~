@@ -1,0 +1,23 @@
+<h1>Преподаватели</h1>
+
+<table>
+  <tr>
+    <th>ФИО</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teachers.each do |teacher| %>
+  <tr>
+    <td><%= teacher.name %></td>
+    <td><%= link_to 'Показать', teacher %></td>
+    <td><%= link_to 'Изменить', edit_teacher_path(teacher) %></td>
+    <td><%= link_to 'Удалить', teacher, :confirm => 'Вы уверенны?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Добавить преподавателя', new_teacher_path %>

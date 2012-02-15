@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  selfautf: MyString
+  group_id: 1
+
+two:
+  selfautf: MyString
+  group_id: 1

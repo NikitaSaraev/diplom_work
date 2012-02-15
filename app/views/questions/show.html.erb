@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Вопрос:</b>
+  <%= @question.question %>
+</p>
+
+<p>
+  <b>Максимальная оценка:</b>
+  <%= @question.max_count %>
+</p>
+
+
+<%= link_to 'Изменить', edit_question_path(@question) %> |
+<%= link_to 'Назад', questions_path %>

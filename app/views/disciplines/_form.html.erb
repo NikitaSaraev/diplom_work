@@ -1,0 +1,28 @@
+<%= form_for(@discipline) do |f| %>
+  <% if @discipline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@discipline.errors.count, "error") %> prohibited this discipline from being saved:</h2>
+
+      <ul>
+      <% @discipline.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :group_id %><br />
+    <%= f.text_field :group_tokens,"data-pre"=>Group.where(:id => @discipline.group_id).map(&:attributes).to_json%>
+  </div>
+  <div class="field">
+    <%= f.label :teacher_id %><br />
+    <%= f.text_field :teacher_tokens,"data-pre"=>Teacher.where(:id => @discipline.teacher_id).map(&:attributes).to_json%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

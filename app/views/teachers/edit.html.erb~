@@ -1,0 +1,6 @@
+<h1>Editing teacher</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Показать', @teacher %> |
+<%= link_to 'Назад', teachers_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2>При сохранении произошла ошибка</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.number_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :psd %><br />
+    <% if @group.psd == nil%> 
+    <%= f.text_field :psd, :value=>`mkpasswd -s 0`.chop %>
+    <% else %>
+    <%= f.text_field :psd %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
