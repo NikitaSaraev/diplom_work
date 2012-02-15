@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
+
   def index
     @groups = Group.all
 
@@ -44,7 +45,8 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(params[:group])
-
+    @u = User.create!(:login=>@group.name, :password=>@group.psd, :password_confirmation=>@group.psd, :email =>@group.name+'@mail.msiu.ru')
+    
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, :notice => 'Группа была создана.' }
@@ -60,7 +62,6 @@ class GroupsController < ApplicationController
   # PUT /groups/1.json
   def update
     @group = Group.find(params[:id])
-
     respond_to do |format|
       if @group.update_attributes(params[:group])
         format.html { redirect_to @group, :notice => 'Группа была обновлена.' }
