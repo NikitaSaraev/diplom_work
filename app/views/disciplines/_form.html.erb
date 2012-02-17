@@ -11,12 +11,12 @@
     </div>
   <% end %>
   <div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
+    <%= f.label :discipline_dict_id %><br />
+    <%= f.text_field :discipline_dictionary_tokens,"data-pre"=> DisciplineDictionary.where(:id => @discipline.discipline_dict_id).map(&:attributes).to_json%>
   </div>
   <div class="field">
     <%= f.label :group_id %><br />
-    <%= f.text_field :group_tokens,"data-pre"=>Group.where(:id => @discipline.group_id).map(&:attributes).to_json%>
+    <%= f.text_field :group_tokens,"data-pre"=> Group.where(:id => @discipline.group_id).map(&:attributes).to_json%>
   </div>
   <div class="field">
     <%= f.label :teacher_id %><br />

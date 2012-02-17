@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validates :login, :presence   => true,
                     :uniqueness => true,
-                    :length     => { :within => 3..40 },
+                    :length     => { :within => 0..40 },
                     :format     => { :with => Authentication.login_regex, :message => Authentication.bad_login_message }
 
   validates :name,  :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },
@@ -42,9 +42,6 @@ class User < ActiveRecord::Base
     u && u.authenticated?(password) ? u : nil
   end
 
-  def login=(value)
-    write_attribute :login, (value ? value.downcase : nil)
-  end
 
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)

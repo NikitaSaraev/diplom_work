@@ -12,7 +12,7 @@
 
 <% @disciplines.each do |discipline| %>
   <tr>
-    <td><%= discipline.name %></td>
+    <td><%= discipline.discipline_dict_id  %></td>
     <td><%= discipline.group_id %></td>
     <td><%= discipline.teacher_id %></td>
     <td><%= link_to 'Show', discipline %></td>

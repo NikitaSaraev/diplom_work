@@ -1,4 +1,6 @@
 Project::Application.routes.draw do
+  resources :discipline_dictionaries
+
   resources :disciplines
 
   resources :questions
@@ -17,9 +19,10 @@ Project::Application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
 
- # match 'signup' => 'users#new', :as => :signup
 
- # match 'register' => 'users#create', :as => :register
+  match 'signup' => 'users#new', :as => :signup
+
+  match 'register' => 'users#create', :as => :register
 
   match 'login' => 'sessions#new', :as => :login
 

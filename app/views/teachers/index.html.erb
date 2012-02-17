@@ -2,7 +2,9 @@
 
 <table>
   <tr>
-    <th>ФИО</th>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Отчество</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +12,9 @@
 
 <% @teachers.each do |teacher| %>
   <tr>
+    <td><%= teacher.sname %></td>
     <td><%= teacher.name %></td>
+    <td><%= teacher.fname %></td>
     <td><%= link_to 'Показать', teacher %></td>
     <td><%= link_to 'Изменить', edit_teacher_path(teacher) %></td>
     <td><%= link_to 'Удалить', teacher, :confirm => 'Вы уверенны?', :method => :delete %></td>

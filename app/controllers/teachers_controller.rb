@@ -7,7 +7,7 @@ class TeachersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json do
-         @teacher = Teacher.where("lower(name) LIKE lower(?)","%#{params[:q]}%").all
+         @teacher = Teacher.where("lower(monkeys_turn) LIKE lower(?)","%#{params[:q]}%").all
         render :json=>@teacher.map(&:attributes)
       end
     end
@@ -44,9 +44,9 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(params[:teacher])
-
     respond_to do |format|
       if @teacher.save
+        Teacher.update(Teacher.last, :monkeys_turn=>@teacher.sname+' '+@teacher.name+' '+@teacher.fname)
         format.html { redirect_to @teacher, :notice => 'Информация о преподаватели была добавлена.' }
         format.json { render :json => @teacher, :status => :created, :location => @teacher }
       else
@@ -60,9 +60,9 @@ class TeachersController < ApplicationController
   # PUT /teachers/1.json
   def update
     @teacher = Teacher.find(params[:id])
-
     respond_to do |format|
       if @teacher.update_attributes(params[:teacher])
+        Teacher.update(Teacher.find(params[:id]), :monkeys_turn=>@teacher.sname+' '+@teacher.name+' '+@teacher.fname)
         format.html { redirect_to @teacher, :notice => 'Информация о преподаватели была обновлена.' }
         format.json { head :ok }
       else

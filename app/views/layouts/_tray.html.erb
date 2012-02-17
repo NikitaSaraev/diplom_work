@@ -1,0 +1,7 @@
+<div id = "aside" class = "box">
+
+    <%if @current_user%>
+      Вы:
+      <%=@current_user.login%>
+      <%=link_to "Выход",logout_path%>
+<%end%>

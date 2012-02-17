@@ -2,7 +2,7 @@ class DisciplinesController < ApplicationController
   # GET /disciplines
   # GET /disciplines.json
   def index
-    @disciplines = Discipline.all
+    @disciplines = Discipline.includes(:group , :teacher, :discipline_dictionary).all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -13,6 +13,7 @@ $(function() {
     prePopulate: $("#discipline_teacher_tokens").data("pre"),
     theme: 'facebook',
     hintText: 'Введите имя преподавателя',
+    propertyToSearch: "monkeys_turn",  
     noResultsText: 'Не найдено',
     searchingText: "Поиск...",
     tokenLimit: "1"
@@ -23,9 +24,20 @@ $(function() {
     crossDomain: false,
     prePopulate: $("#discipline_group_tokens").data("pre"),
     theme: 'facebook',
-    hintText: 'Введите имя преподавателя',
+    hintText: 'Введите номер группы',
     noResultsText: 'Не найдено',
-    searchingText: "Поиск..."
+    searchingText: "Поиск...",
+    tokenLimit: "1"
+  });
+});
+$(function() {
+  $("#discipline_discipline_dictionary_tokens").tokenInput("/discipline_dictionaries.json", {
+    crossDomain: false,
+    prePopulate: $("#discipline_discipline_dictionary_tokens").data("pre"),
+    theme: 'facebook',
+    hintText: 'Введите название дисциплины',
+    noResultsText: 'Не найдено',
+    searchingText: "Поиск...",
     tokenLimit: "1"
   });
 });

@@ -1,7 +1,7 @@
 class CreateDisciplines < ActiveRecord::Migration
   def change
     create_table :disciplines do |t|
-      t.string :name
+      t.string :discipline_dict_id
       t.integer :group_id
       t.integer :teacher_id
 
