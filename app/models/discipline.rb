@@ -12,10 +12,10 @@ class Discipline < ActiveRecord::Base
    self.group_id = ids
   end
   def discipline_dictionary_tokens=(ids)
-   self.discipline_dict_id = ids
+   self.discipline_dictionary_id = ids
   end
  
-validates :discipline_dict_id, :presence=>true
+validates :discipline_dictionary_id, :presence=>true
 validates :teacher_id, :presence=>true
 validates :group_id, :presence=>true
 

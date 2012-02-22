@@ -31,9 +31,9 @@ $(function() {
   });
 });
 $(function() {
-  $("#discipline_discipline_dictionary_tokens").tokenInput("/discipline_dictionaries.json", {
+  $("#discipline_dictionary_tokens").tokenInput("/discipline_dictionaries.json", {
     crossDomain: false,
-    prePopulate: $("#discipline_discipline_dictionary_tokens").data("pre"),
+    prePopulate: $("#discipline_dictionary_tokens").data("pre"),
     theme: 'facebook',
     hintText: 'Введите название дисциплины',
     noResultsText: 'Не найдено',

@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20120217045327) do
   end
 
   create_table "disciplines", :force => true do |t|
-    t.string   "discipline_dict_id"
+    t.string   "discipline_dictionary_id"
     t.integer  "group_id"
     t.integer  "teacher_id"
     t.datetime "created_at"

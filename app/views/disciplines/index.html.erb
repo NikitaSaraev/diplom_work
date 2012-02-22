@@ -12,9 +12,9 @@
 
 <% @disciplines.each do |discipline| %>
   <tr>
-    <td><%= discipline.discipline_dict_id  %></td>
-    <td><%= discipline.group_id %></td>
-    <td><%= discipline.teacher_id %></td>
+    <td><%= discipline.discipline_dictionary.name  %></td>
+    <td><%= discipline.group.name %></td>
+    <td><%= discipline.teacher.monkeys_turn %></td>
     <td><%= link_to 'Show', discipline %></td>
     <td><%= link_to 'Edit', edit_discipline_path(discipline) %></td>
     <td><%= link_to 'Destroy', discipline, :confirm => 'Are you sure?', :method => :delete %></td>

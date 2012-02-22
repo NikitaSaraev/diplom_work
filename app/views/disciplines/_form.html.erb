@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :discipline_dict_id %><br />
-    <%= f.text_field :discipline_dictionary_tokens,"data-pre"=> DisciplineDictionary.where(:id => @discipline.discipline_dict_id).map(&:attributes).to_json%>
+    <%= f.label :discipline_dictionary_id %><br />
+    <%= f.text_field :discipline_dictionary_tokens,"data-pre"=> DisciplineDictionary.where(:id => @discipline.discipline_dictionary_id).map(&:attributes).to_json%>
   </div>
   <div class="field">
     <%= f.label :group_id %><br />

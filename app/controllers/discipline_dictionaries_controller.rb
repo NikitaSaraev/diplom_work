@@ -7,8 +7,8 @@ class DisciplineDictionariesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json do
-        @discopline_dictionary = DisciplineDictionary.where("lower(name) LIKE lower(?)","%#{params[:q]}%").all
-        render :json=>@discopline_dictionary.map(&:attributes)
+        @discipline_dictionary = DisciplineDictionary.where("lower(name) LIKE lower(?)","%#{params[:q]}%").all
+        render :json=>@discipline_dictionary.map(&:attributes)
 	end
     end
   end
