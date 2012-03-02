@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  
   <div class="field">
     <%= f.label :discipline_dictionary_id %><br />
     <%= f.text_field :discipline_dictionary_tokens,"data-pre"=> DisciplineDictionary.where(:id => @discipline.discipline_dictionary_id).map(&:attributes).to_json%>

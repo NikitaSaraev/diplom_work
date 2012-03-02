@@ -6,14 +6,12 @@
     <th>Максимальная оценка</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @questions.each do |question| %>
   <tr>
     <td><%= question.question %></td>
     <td><%= question.max_count %></td>
-    <td><%= link_to 'Показать', question %></td>
     <td><%= link_to 'Изменить', edit_question_path(question) %></td>
     <td><%= link_to 'Удалить', question, :confirm => 'Вы уверенны?', :method => :delete %></td>
   </tr>

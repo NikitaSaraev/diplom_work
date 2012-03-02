@@ -1,9 +1,14 @@
 class DisciplinesController < ApplicationController
   # GET /disciplines
   # GET /disciplines.json
+  
+  
   def index
-    @disciplines = Discipline.includes(:group , :teacher, :discipline_dictionary).all
-
+    if params[:teacher_id].nil?
+      @disciplines = Discipline.includes(:group , :teacher, :discipline_dictionary).all
+   else
+      @disciplines = Discipline.includes(:group, :teacher, :discipline_dictionary).where(:teacher_id=>params[:teacher_id])
+   end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @disciplines }
@@ -25,7 +30,7 @@ class DisciplinesController < ApplicationController
   # GET /disciplines/new.json
   def new
     @discipline = Discipline.new
-
+    @discipline.teacher_id = params[:teacher_id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @discipline }

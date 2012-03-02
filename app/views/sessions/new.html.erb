@@ -1,4 +1,10 @@
-<h1>Log In</h1>
+
+<% content_for :stylesheets  do %>  
+#smth {display: none}
+<% end %>
+
+
+<h1>Вход</h1>
 
 <%= form_tag session_path do -%>
 <p><%= label_tag 'login' %><br />

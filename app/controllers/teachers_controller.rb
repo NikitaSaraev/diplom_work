@@ -1,6 +1,7 @@
 class TeachersController < ApplicationController
   # GET /teachers
   # GET /teachers.json
+  @asd
   def index
     @teachers = Teacher.all
 
@@ -28,7 +29,7 @@ class TeachersController < ApplicationController
   # GET /teachers/new.json
   def new
     @teacher = Teacher.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @teacher }

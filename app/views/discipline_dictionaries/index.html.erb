@@ -1,9 +1,8 @@
-<h1>Listing discipline_dictionaries</h1>
+<h1>Просмотр всех дисциплин</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th></th>
+    <th>Название</th>
     <th></th>
     <th></th>
   </tr>
@@ -11,13 +10,12 @@
 <% @discipline_dictionaries.each do |discipline_dictionary| %>
   <tr>
     <td><%= discipline_dictionary.name %></td>
-    <td><%= link_to 'Show', discipline_dictionary %></td>
-    <td><%= link_to 'Edit', edit_discipline_dictionary_path(discipline_dictionary) %></td>
-    <td><%= link_to 'Destroy', discipline_dictionary, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Изменить', edit_discipline_dictionary_path(discipline_dictionary) %></td>
+    <td><%= link_to 'Удалить', discipline_dictionary, :confirm => 'Вы уверенны?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Discipline dictionary', new_discipline_dictionary_path %>
+<%= link_to 'Добавить новую дисцилину', new_discipline_dictionary_path %>

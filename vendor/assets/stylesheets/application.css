@@ -53,8 +53,8 @@ dl.nostyle dd {margin:0 !important;}
 LAYOUT
 ============================================================================= */
 
-#main {min-width:980px; width:expression(document.body.clientWidth < 980? "980px" : "auto" );}
-#tray {padding:12px 15px; background:url("/images/tray.gif") 0 0 repeat-x; font:85%/1.2 "tahoma",sans-serif;}
+#main {min-width:980px;}
+#tray {padding:12px 15px; font:85%/1.2 "tahoma",sans-serif;}
 #tray p {margin:0;}
 #tray p.f-left {width:50%;}
 #tray #logout,#tray #login {padding-left:18px; background:url("/images/tray-logout.gif") 0 50% no-repeat; text-transform:uppercase;}

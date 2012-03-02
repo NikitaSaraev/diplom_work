@@ -303,7 +303,9 @@ ru:
         password: "Пароль"
         password_confirmation: "Пароль (повторно)"
       teacher:
-        name: "ФИО"
+        name: "Имя"
+        sname: "Фамилия"
+        fname: "Отчество"
       question:
         question: "Вопрос"
         max_count: "Максимальная оценка"
@@ -311,8 +313,11 @@ ru:
         name: "Номер"
         psd: "Пароль"
       discipline:
+        discipline_dictionary_id: "Название дисциплины"
         group_id: "Номер группы"
         teacher_id: "Преподаватель"
+      discipline_dictionary:
+        name: "Название дисциплины"
   support:
     select:
       prompt: "Выберите: "

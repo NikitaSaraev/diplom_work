@@ -1,7 +1,11 @@
-<div id = "aside" class = "box">
+<div id = "tray" class = "box">
 
     <%if @current_user%>
       Вы:
-      <%=@current_user.login%>
-      <%=link_to "Выход",logout_path%>
+      <strong>
+      <%=@current_user.login%></strong>
+      <strong><%=link_to "Выход",logout_path%></strong>
+   <%else%>
+     <strong><%=link_to "Вход",login_path%></strong>
 <%end%>
+</div>

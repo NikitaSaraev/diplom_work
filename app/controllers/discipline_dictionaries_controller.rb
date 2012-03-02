@@ -47,7 +47,7 @@ class DisciplineDictionariesController < ApplicationController
 
     respond_to do |format|
       if @discipline_dictionary.save
-        format.html { redirect_to @discipline_dictionary, :notice => 'Discipline dictionary was successfully created.' }
+        format.html { redirect_to discipline_dictionaries_path, :notice => 'Discipline dictionary was successfully created.' }
         format.json { render :json => @discipline_dictionary, :status => :created, :location => @discipline_dictionary }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class DisciplineDictionariesController < ApplicationController
 
     respond_to do |format|
       if @discipline_dictionary.update_attributes(params[:discipline_dictionary])
-        format.html { redirect_to @discipline_dictionary, :notice => 'Discipline dictionary was successfully updated.' }
+        format.html { redirect_to discipline_dictionaries_path, :notice => 'Discipline dictionary was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

@@ -44,7 +44,9 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(params[:group])
-    @u = User.create(:login=>@group.name, :password=>@group.psd, :password_confirmation=>@group.psd, :email =>@group.name+'@mail.msiu.ru', :role =>`0`)
+    @u = User.create(:login=>@group.name, :password=>@group.psd, :password_confirmation=>@group.psd, :email =>@group.name+'@mail.msiu.ru')
+    @u.role=0
+    @u.save
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, :notice => 'Группа была создана.' }
