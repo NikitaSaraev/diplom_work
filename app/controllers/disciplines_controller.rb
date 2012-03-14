@@ -4,9 +4,11 @@ class DisciplinesController < ApplicationController
   
   
   def index
-    if params[:teacher_id].nil?
+
+   if params[:group_id].nil? and params[:teacher_id].nil?
       @disciplines = Discipline.includes(:group , :teacher, :discipline_dictionary).all
    else
+      @disciplines = Discipline.includes(:group, :teacher, :discipline_dictionary).where(:group_id=>params[:group_id])
       @disciplines = Discipline.includes(:group, :teacher, :discipline_dictionary).where(:teacher_id=>params[:teacher_id])
    end
     respond_to do |format|
@@ -31,6 +33,7 @@ class DisciplinesController < ApplicationController
   def new
     @discipline = Discipline.new
     @discipline.teacher_id = params[:teacher_id]
+    @discipline.group_id = params[:group_id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @discipline }

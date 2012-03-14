@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20120217045327) do
 
   create_table "answers", :force => true do |t|
     t.integer  "report_id"
+    t.integer  "question_id"
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"

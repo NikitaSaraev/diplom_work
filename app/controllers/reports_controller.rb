@@ -24,7 +24,8 @@ class ReportsController < ApplicationController
   # GET /reports/new
   # GET /reports/new.json
   def new
-    @report = Report.new
+    @report = Report.includes(:questions).new
+    @question = Question.all
 
     respond_to do |format|
       format.html # new.html.erb

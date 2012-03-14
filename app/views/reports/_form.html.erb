@@ -16,13 +16,21 @@
     <%= f.number_field :interview_id %>
   </div>
   <div class="field">
-    <%= f.label :teacher_id %><br />
-    <%= f.number_field :teacher_id %>
+   <%= f.label :teacher_id %><br />
+   <%= f.number_field :teacher_id %>
   </div>
   <div class="field">
     <%= f.label :ip %><br />
     <%= f.text_field :ip %>
   </div>
+  <% @question.each do |question|%>
+  <%= question.question %>
+<br/>
+  <%= fields_for question.answers.build do |a|%>
+  <%= a.number_field :value%>
+  <%end%>
+<br/>
+<%end%>
   <div class="actions">
     <%= f.submit %>
   </div>

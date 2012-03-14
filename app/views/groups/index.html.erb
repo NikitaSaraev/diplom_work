@@ -6,12 +6,14 @@
     <th>Пароль</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @groups.each do |group| %>
   <tr>
-    <td><%= group.name %></td>
+    <td><%=link_to group.name, :controller=>'disciplines', :group_id=>group.id %></td>
     <td><%= group.psd %></td>
+    <td><%= link_to 'Прикрепить к дисциплине', new_discipline_path(:group_id=>group.id) %></td>
     <td><%= link_to 'Изменить', edit_group_path(group) %></td>
     <td><%= link_to 'Удалить', group, :confirm => 'Вы уверенны?', :method => :delete %></td>
   </tr>
