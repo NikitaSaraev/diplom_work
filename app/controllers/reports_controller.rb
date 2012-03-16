@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
+
   def index
     @reports = Report.all
 
@@ -24,9 +25,11 @@ class ReportsController < ApplicationController
   # GET /reports/new
   # GET /reports/new.json
   def new
-    @report = Report.includes(:questions).new
-    @question = Question.all
-
+    @report = Report.new
+    @questions = Question.all
+    @questions.each{|q| @report.answers.build(:question=>q)}
+    @ip = request.remote_ip
+    @report.teacher_id = params[:teacher_id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @report }
@@ -36,13 +39,14 @@ class ReportsController < ApplicationController
   # GET /reports/1/edit
   def edit
     @report = Report.find(params[:id])
+    @ip = request.remote_ip
   end
 
   # POST /reports
   # POST /reports.json
   def create
     @report = Report.new(params[:report])
-
+    @ip = request.remote_ip
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, :notice => 'Анкета была добавлена.' }

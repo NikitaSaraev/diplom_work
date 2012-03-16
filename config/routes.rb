@@ -20,15 +20,15 @@ Project::Application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
 
 
-  match 'signup' => 'users#new', :as => :signup
+ # match 'signup' => 'users#new', :as => :signup
 
-  match 'register' => 'users#create', :as => :register
+ # match 'register' => 'users#create', :as => :register
 
-  match 'login' => 'sessions#new', :as => :login
+ match 'login' => 'sessions#new', :as => :login
 
-  match 'logout' => 'sessions#destroy', :as => :logout
+ match 'logout' => 'sessions#destroy', :as => :logout
 
-  match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
+ # match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

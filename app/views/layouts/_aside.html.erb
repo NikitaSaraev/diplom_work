@@ -1,10 +1,21 @@
 <div id = "aside" class = "box">
-  <ul class = "box">
+   <%if current_user && current_user.admin?%> 
+   <ul class = "box">
     <li><%=link_to "Группы",groups_path%>
     <li><%=link_to "Вопросы",questions_path%>
     <li><%=link_to "Преподаватели",teachers_path%>
     <li><%=link_to "Дисциплины",disciplines_path%>
     <li><%=link_to "Перечень дисциплин", discipline_dictionaries_path%>
 </ul>
+<%end%>
+  <%if current_user && current_user.regular?%>
+  <%Discipline.where(:group_id => current_user.id).each do |disciplines|%>
+  <ul><li><%=disciplines.discipline_dictionary.name%>
+    <%Teacher.where(:id=>disciplines.teacher_id).each do |teacher|%>   
+   <ul class ="box">
+   <li><%=link_to teacher.monkeys_turn, new_report_path(:teacher_id=>teacher.id)%></ul></ul>
+  <%end%>
+  <%end%>
 
+  <%end%>
 </div>

@@ -9,11 +9,15 @@
   </head>
   <body>
     <div id = "main">
-      <div id = "smth"><%= render 'layouts/tray'%></div>
+      <%= render 'layouts/tray'%>
       <div id = "cols" class "box">
       <hr class = "noscreen">
-      <div id = "smth"><%= render 'layouts/aside'%></div>
-      <div id="content"><%= content_for?(:content) ? yield(:content) : yield %></div>
+      <%= render 'layouts/aside'%>
+      <div id="content" class "box">
+    <%unless notice.blank?%><div class="msg.done"><%=notice%></div><%end%>
+    <%unless flash[:error].blank?%><div class="msg.error"><%= flash[:error]%></div><%end%>
+
+    <%= yield %></div>
     </div>
     <hr class = "noscreen">
     <div id = "smth"><%= render 'layouts/footer'%></div>

@@ -10,27 +10,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<!--  <div class="field">
     <%= f.label :interview_id %><br />
     <%= f.number_field :interview_id %>
-  </div>
+  </div>--!>
   <div class="field">
    <%= f.label :teacher_id %><br />
-   <%= f.number_field :teacher_id %>
+   <%= f.number_field :teacher_id, :value=>@report.teacher.monkeys_turn ,:readonly=>true %>
   </div>
-  <div class="field">
-    <%= f.label :ip %><br />
-    <%= f.text_field :ip %>
-  </div>
-  <% @question.each do |question|%>
-  <%= question.question %>
-<br/>
-  <%= fields_for question.answers.build do |a|%>
+
+  <%= f.fields_for :answers do |a|%>
+  <%= a.object.question.question%>
+  <br/>
   <%= a.number_field :value%>
-  <%end%>
-<br/>
+  <%= a.hidden_field :question_id%>
+  <br/>
 <%end%>
+  <div class="field">
+    <%= f.hidden_field :ip, :value => @ip.to_s,:readonly=>true%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

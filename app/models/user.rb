@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validates :login, :presence   => true,
                     :uniqueness => true,
-                    :length     => { :within => 0..40 },
+                    :length     => { :within => 1..40 },
                     :format     => { :with => Authentication.login_regex, :message => Authentication.bad_login_message }
 
   validates :name,  :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },

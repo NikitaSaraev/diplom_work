@@ -59,3 +59,7 @@
     padding:3px;
     margin:2px 0;
 }
+#lockfield[readonly="readonly"]{
+   background-color: #1337f5;
+   color: #FFFFFF;
+}

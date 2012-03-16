@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
 def check_user
 @current_user= current_user
 end
+
 end
